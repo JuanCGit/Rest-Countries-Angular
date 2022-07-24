@@ -1,0 +1,43 @@
+<div class="homeComponent">
+  <mat-toolbar class="navBar">
+    <span class="mainColor">Rest Countries</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button>
+      <mat-icon class="mainColor" (click)="resetSearch()">restart_alt</mat-icon>
+    </button>
+
+    <button mat-icon-button>
+      <mat-icon class="mainColor" (click)="searchCountries()">search</mat-icon>
+    </button>
+
+    <button mat-icon-button>
+      <mat-icon class="mainColor" (click)="createCountry()">add_circle</mat-icon>
+    </button>
+  </mat-toolbar>
+  <div class="homeBody">
+    <div class="country" *ngFor="let country of filteredCountries; let i = index">
+      <mat-card class="countryCard">
+        <mat-card-header>
+          <mat-card-title>
+            {{country.name}}
+            <mat-icon (click)="editCountry(country.numericCode, country.name)" class="icon cursorPointer" aria-hidden="false" aria-label="Example home icon" fontIcon="edit"></mat-icon>
+            <mat-icon (click)="deleteCountry(country.numericCode)" class="icon cursorPointer" aria-hidden="false" aria-label="Example home icon" fontIcon="delete"></mat-icon>
+          </mat-card-title>
+          <mat-card-subtitle>Population: {{country.population}}</mat-card-subtitle>
+        </mat-card-header>
+        <img class="flag cursorPointer" (click)="getCoatOfArms(country.numericCode)" mat-card-image src="{{country.flags.png}}" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          <p>Languages: </p>
+          <mat-chip-list>
+            <mat-chip *ngFor="let language of country.languages">
+              {{language.name}}
+            </mat-chip>
+          </mat-chip-list>
+        </mat-card-content>
+        <mat-card-actions>
+          <a [href]="country.location" target="_blank" mat-button>Visit country: <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="location_on"></mat-icon></a>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

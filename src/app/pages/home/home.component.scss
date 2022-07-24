@@ -1,0 +1,45 @@
+.homeComponent{
+  .navbarIcon{
+    margin-left: 15px;
+  }
+
+  .homeBody{
+    margin-top: 75px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  }
+
+  .country{
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .countryCard{
+      width: 375px;
+
+      .icon{
+        transform: scale(.8);
+        margin-left: 5px;
+      }
+    }
+
+    .flag{
+      height: 235px;
+    }
+  }
+
+  .navBar{
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    background-color: hsla(0,0%,100%,.8);
+    /*background-color: hsla(45, 100%, 50%,.8);*/
+    backdrop-filter: blur(8px);
+    border-bottom: 2px solid #03B5AA;
+
+    .example-spacer {
+      flex: 1 1 auto;
+    }
+  }
+}
